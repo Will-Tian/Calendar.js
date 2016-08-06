@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calendar.js</title>
+	<style type="text/css">
+		body{
+			font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+			margin: 0px;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="./app.css">
+	<link rel="stylesheet" type="text/css" href="./calendar.css">
+</head>
+<body class="clearfix">
+	<div class="documentationBox">
+		<div class="documentation-container">
+			<div class="header">
+				<div class="title">Calendar.js</div>
+				<div class="description">A scheduling widget with a simple javascript API for importing and rendering calendar event data</div>
+			</div>
+			<div class="section">
+				<div class="section-text">
+					Getting Started:
+				</div>
+				<div class="highlightBox">
+					<div class="highlightBox-header">Example Entry Point</div>
+					<div class="highlightBox-content">
+						<div id="html-formula" class="html-code">
+						</div>
+					</div>
+				</div>
+				<div class="highlightBox">
+					<div class="highlightBox-header">Initialize Calendar Example</div>
+					<div class="highlightBox-content">
+						<div>
+							<span class="js-code-key">var&nbsp;</span>
+							<span class="js-code-variable">root</span>
+							<span>&nbsp;=&nbsp;</span>
+							<span class="js-code-function">document.getElementById(</span>
+							<span class="js-code-argument">'calendar'</span>
+							<span class="js-code-function">)</span>
+						</div>
+						<div>
+							<span class="js-code-key">var&nbsp;</span>
+							<span class="js-code-variable">calendar</span>
+							<span>&nbsp;=&nbsp;</span>
+							<span class="js-code-key">new&nbsp;</span>
+							<span class="js-code-function">Calendar(</span>
+							<span class="js-code-argument">620, 720, 540, 1260, 30, root</span>
+							<span class="js-code-function">)</span>
+						</div>
+					</div>
+				</div>
+				<div class="highlightBox">
+					<div class="highlightBox-header">Render Example</div>
+					<div class="highlightBox-content">
+						<div>
+							<span class="js-code-variable">calendar.</span>
+							<span class="js-code-function">renderShell(</span>
+							<span class="js-code-argument">0,60</span>
+							<span class="js-code-function">)</span>
+						</div>
+						<div>
+							<span class="js-code-variable">calendar.</span>
+							<span class="js-code-function">renderData(</span>
+							<span class="js-code-argument">data, 1050, 130</span>
+							<span class="js-code-function">)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<div class="section-text">
+					Live Demo
+					<div class="demo-buttons">
+						<button class="stylized blue" onClick="renderInputData(0);layOutDay(mockEvents)">Event Data 1</button>
+						<button class="stylized blue" onClick="renderInputData(1);layOutDay(mockEventsTest7)">Event Data 2</button>
+						<button class="stylized blue" onClick="renderInputData(2);layOutDay(mockEventsTest8)">Event Data 3</button>
+						<button class="stylized blue" onClick="renderInputData(3);layOutDay(mockEventsTest9)">Event Data 4</button>
+					</div>
+				</div>
+				<div class="highlightBox">
+					<div class="highlightBox-header">Event Data:</div>
+					<div class="highlightBox-content">
+						<div id="data">
+							[{"start":30,"end":150},{"start":540,"end":600},{"start":560,"end":620},{"start":610,"end":670}]
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="calendarBox">
+		<div class="content">
+			<div id="calendar-container" class="calendar-container">
+			</div>
+		</div>	
+	</div>
+	
+	<script src="./jquery.min.js"></script>
+	<script type="text/javascript" src="./mockEvents.js"></script>
+	<script type="text/javascript" src="./calendar.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var formula = document.createTextNode('<div id="calendar"></div>');	
+			document.getElementById('html-formula').appendChild(formula);
+			var calendar = window.calendar = new Calendar(620, 720, 540, 1260, 30, document.getElementById('calendar-container'));
+			calendar.renderShell(0, 600);
+			calendar.renderData(window.mockEvents, 1200, 130);
+			window.renderInputData = function(i){
+
+				var data = [
+					'[{"start":30,"end":150},{"start":540,"end":600},{"start":560,"end":620},{"start":610,"end":670}]',
+					'[{"start":30,"end":150},{"start":60,"end":180},{"start":90,"end":300},{"start":280,"end":400},{"start":340,"end":560},{"start":420,"end":650}]',
+					'[{"start":30,"end":150},{"start":90,"end":210},{"start":180,"end":290},{"start":230,"end":350},{"start":310,"end":430},{"start":370,"end":490}]',
+					'[{"start":30,"end":150},{"start":30,"end":150},{"start":30,"end":150},{"start":160,"end":200},{"start":180,"end":220},{"start":200,"end":240},{"start":220,"end":260},{"start":280,"end":340},{"start":300,"end":360},{"start":320,"end":380},{"start":370,"end":420},{"start":390,"end":440},{"start":410,"end":460},{"start":460,"end":535},{"start":520,"end":670},{"start":540,"end":600},{"start":560,"end":620},{"start":610,"end":670}]'
+				]
+				var ele = $('#data')
+				ele.empty();
+				ele.text(data[i])
+			}
+		})
+	</script>
+</body>
+</html>

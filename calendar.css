@@ -1,0 +1,109 @@
+.calendar-container{
+ 	position: relative;
+ 	padding: 0px 10px;
+ 	transform: scaleY(0);
+ 	-webkit-transform: scaleY(0);
+ 	-moz-transform: scaleY(0);
+ 	-o-transform: scaleY(0);
+ 	-ms-transform: scaleY(0);
+ 	-webkit-transition: transform 1s cubic-bezier(1, 0, 0, 1);
+ 	-moz-transition: transform 1s cubic-bezier(1, 0, 0, 1);
+ 	-o-transition: transform 1s cubic-bezier(1, 0, 0, 1);
+ 	transition: transform 1s cubic-bezier(1, 0, 0, 1);
+ }
+
+.calendar-container-inner{
+	width: 100%;
+	height: 100%;
+	background-color: #ececec;
+	padding: 0px 10px;
+	box-sizing: border-box;
+}
+.calender-container-inner-content{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.calendar-timescale{
+	position: absolute;
+	left: 0px;
+	top: -2%;
+	height: 104%;
+	width: auto;
+	transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+	-o-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	text-align: right;
+}
+
+.timescale-item{
+	position: relative;
+	font-size: 12px;
+	color: #adadad;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	resize: vertical;
+}
+
+.timescale-item.interval .timestring{
+	color: #686868;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.timescale-item.interval .appendix{
+	color: #adadad;
+	font-size: 12px;
+	font-weight: 300;
+	vertical-align: bottom;
+}
+.timescale-item span{
+	vertical-align: middle;
+}
+
+.calendar-event-item{
+	position: absolute;
+	background-color: white;
+	border-width: 1px 1px 1px 0px;
+	border-color: #d5d5d5;
+	border-style: solid;
+	/*border-left: 5px solid #4b6ea9;*/
+	box-sizing: border-box;
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+	-webkit-transition: width .5s cubic-bezier(1, 0, 0, 1), height .5s cubic-bezier(1, 0, 0, 1);
+	-moz-transition: width .5s cubic-bezier(1, 0, 0, 1), height .5s cubic-bezier(1, 0, 0, 1);
+	-o-transition: width .5s cubic-bezier(1, 0, 0, 1), height .5s cubic-bezier(1, 0, 0, 1);
+	transition: width .5s cubic-bezier(1, 0, 0, 1), height .5s cubic-bezier(1, 0, 0, 1);
+}
+.calendar-event-item:before{
+	content: "";
+	display: block;
+	position: absolute;
+	width: 5px;
+	height: 100%;
+	background-color: #4b6ea9;
+	box-sizing: content-box;
+	padding: 1px 0px;
+	top: -1px;
+}
+.event-item-text{
+	height: 100%;
+	width: 100%;
+	padding: 5px 10px;
+	box-sizing: border-box;
+}
+.event-name{
+	color: #4b6ea9;
+	font-size: 15px;
+}
+.event-location{
+	color: #979797;
+	font-size: 10px;
+}
+
